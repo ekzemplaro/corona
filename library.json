@@ -1,0 +1,28 @@
+{
+	"09201": {"status" : -1,"url": ""},
+	"09202": {"status" : 1,"url": ""},
+	"09203": {"status" : -1,"url": ""},
+	"09204": {"status" : -1,"url": ""},
+	"09205": {"status" : 1,"url": ""},
+	"09206": {"status" : 1,"url": "https://opac.city.nikko.lg.jp/"},
+	"09208": {"status" : -1,"url": ""},
+	"09209": {"status" : -1,"url": ""},
+	"09210": {"status" : -1,"url": "http://www.lib-ohtawara.jp/"},
+	"09211": {"status" : 1,"url": "https://www.yaita-city-tosyokan.jp/"},
+	"09213": {"status" : 1,"url": "https://www.nasushiobara-library.jp/"},
+	"09214": {"status" : -1,"url": ""},
+	"09215": {"status" : -1,"url": ""},
+	"09216": {"status" : 1,"url": ""},
+	"09301": {"status" : 1,"url": ""},
+	"09342": {"status" : 1,"url": ""},
+	"09343": {"status" : -1,"url": ""},
+	"09344": {"status" : -1,"url": ""},
+	"09345": {"status" : 1,"url": ""},
+	"09361": {"status" : -1,"url": ""},
+	"09364": {"status" : 1,"url": ""},
+	"09384": {"status" : -1,"url": "https://www.town.shioya.tochigi.jp/forms/menutop/menutop.aspx?menu_id=1748"},
+	"09386": {"status" : -1,"url": ""},
+	"09407": {"status" : 1,"url": "http://www.library.nasu.tochigi.jp/"},
+	"09411": {"status" : 1,"url": "http://www.lib-nakagawa.jp/"}
+}
+
