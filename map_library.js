@@ -42,10 +42,15 @@ function draw_map_proc(data_in,library_in)
 		.append('path')
 		.attr('d', path)
 		.attr('class', 'area')
-		.attr('data-address', function(d) {
+		.attr('name', function(d) {
 			const pp = d.properties;
            		this.style.fill = add_color_proc(pp,library_in)
-			return pp.N03_007 + " " + pp.N03_004;
+			return pp.N03_004;
+//			return pp.N03_007 + " " + pp.N03_004;
+			})
+		.attr('key', function(d) {
+			const pp = d.properties;
+			return pp.N03_007
 			})
 /*
 		.on('mouseover', function() {
@@ -57,8 +62,13 @@ function draw_map_proc(data_in,library_in)
 */
             .on('click', function() {
                 this.style.fill = 'blue';
-	jQuery("#outarea_bb").text (this)
-	jQuery("#outarea_cc").text (this.getAttribute('data-address'))
+		const name = this.getAttribute('name')
+		const key = this.getAttribute('key')
+		const url = library_in[key].url
+		var str_out = key + "<br />"
+		str_out += name + "<br />"
+		str_out += url + "<br />"
+		jQuery("#outarea_cc").html (str_out)
 //		console.log(this)
             })
 
