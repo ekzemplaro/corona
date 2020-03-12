@@ -4,6 +4,7 @@
 //					May/23/2017
 // ----------------------------------------------------------------------
 const file_json = "data.json"
+// const file_json = "https://github.com/kaz-ogiwara/covid19/tree/master/data/data.json"
 
 jQuery.getJSON(file_json,function (data)
 	{
