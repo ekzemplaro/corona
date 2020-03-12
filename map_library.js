@@ -46,7 +46,6 @@ function draw_map_proc(data_in,library_in)
 			const pp = d.properties;
            		this.style.fill = add_color_proc(pp,library_in)
 			return pp.N03_004;
-//			return pp.N03_007 + " " + pp.N03_004;
 			})
 		.attr('key', function(d) {
 			const pp = d.properties;
@@ -62,14 +61,13 @@ function draw_map_proc(data_in,library_in)
 */
             .on('click', function() {
                 this.style.fill = 'blue';
-		const name = this.getAttribute('name')
 		const key = this.getAttribute('key')
+		const name = this.getAttribute('name')
 		const url = library_in[key].url
 		var str_out = key + "<br />"
 		str_out += name + "<br />"
 		str_out += url + "<br />"
 		jQuery("#outarea_cc").html (str_out)
-//		console.log(this)
             })
 
 }
