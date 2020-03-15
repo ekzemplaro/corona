@@ -46,10 +46,10 @@ function convert01(data)
 	graph_data['labels'] = labels
 	graph_data['datasets'] = []
 
-	const unit_aa =		{
-		label: "Inspect",
+	const unit_aa =	{label: "PCR検査数",
 		lineTension: 0,
-		data : numbers
+		data : numbers,
+		borderColor: 'green'
 		}
 
 	graph_data['datasets'].push(unit_aa)
