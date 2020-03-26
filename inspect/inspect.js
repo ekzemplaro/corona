@@ -1,7 +1,7 @@
 // ----------------------------------------------------------------------
 //	inspect.js
 //
-//					Mar/13/2020
+//					Mar/26/2020
 // ----------------------------------------------------------------------
 const file_json = "data.json"
 
@@ -23,17 +23,17 @@ function convert01(data)
 	var labels = []
 	var numbers = []
 	var number_before = 0
-	for (it in data.transition)
+	for (it in data.transition.pcrtested)
 		{
 		if (0 < it)
 			{
-			number_before = data.transition[it-1][3]
-			}
+			number_before = data.transition.pcrtested[it-1][3]
+//			}
 
-		unit = data.transition[it]
-		if ((2 < unit[0]) && (4 < unit[1]))
-			{
-			const label = String(unit[0]) + "-" + String(unit[1])
+		unit = data.transition.pcrtested[it]
+//		if ((2 < unit[0]) && (4 < unit[1]))
+//			{
+			const label = String(unit[1]) + "-" + String(unit[2])
 			labels.push(label)
 			const number = unit[3] - number_before
 			numbers.push(number)
