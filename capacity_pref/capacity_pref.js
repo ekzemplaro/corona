@@ -17,19 +17,32 @@ jQuery (function ()
 		str_out += "<tr>"
 		str_out += "<th>No</th>"
 		str_out += "<th>Pref</th>"
-		str_out += "<th>num</th>"
+		str_out += "<th>Mar/7</th>"
+		str_out += "<th>Mar/24</th>"
 		str_out += "</tr>"
-		var icount = 0
+		var sum_mar07 = 0
+		var sum_mar24 = 0
+
 		for (var key in data_aa)
 			{
 			const unit_aa = data_aa[key]
 			str_out += "<tr>"
 			str_out += "<td>" + key + "</td>"
 			str_out += "<td>" + unit_aa.name + "</td>"
-			str_out += "<td>" + unit_aa.num + "</td>"
+			str_out += "<td>" + unit_aa.mar07 + "</td>"
+			str_out += "<td>" + unit_aa.mar24 + "</td>"
 			str_out += "</tr>"
+
+			sum_mar07 += parseInt(unit_aa.mar07)
+			sum_mar24 += parseInt(unit_aa.mar24)
 			}
 
+		str_out += "<tr>"
+		str_out += "<td></td>"
+		str_out += "<th>計</th>"
+		str_out += "<td>" + sum_mar07 + "</td>"
+			str_out += "<td>" + sum_mar24 + "</td>"
+		str_out += "</tr>"
 		str_out += "</table>"
 
 		jQuery(".contents").html (str_out)
