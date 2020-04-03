@@ -1,0 +1,21 @@
+/* -------------------------------------------------------------- */
+/*
+	saitama_area.css
+
+					Apr/03/2020
+*/
+/* -------------------------------------------------------------- */
+.area {
+    fill: silver;
+    stroke: white;
+}
+.popup {
+    fill: black;
+    font-size: 10pt;
+}
+
+.red {color: red;}
+.yellow {color: yellow;}
+.silver {color: silver;}
+.green {color: green;}
+/* -------------------------------------------------------------- */
