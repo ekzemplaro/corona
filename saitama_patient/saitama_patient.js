@@ -32,7 +32,8 @@ jQuery (function ()
 			str_out += "<td>" + unit_aa.age + "</td>"
 			str_out += "<td>" + unit_aa.sex + "</td>"
 			str_out += "<td>" + unit_aa.place + "</td>"
-			str_out += "<td>" + unit_aa.status + "</td>"
+//			str_out += "<td>" + unit_aa.status + "</td>"
+			str_out += "<td>---</td>"
 			str_out += "</tr>"
 
 			}
