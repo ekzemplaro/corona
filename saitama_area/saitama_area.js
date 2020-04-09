@@ -100,6 +100,9 @@ function draw_map_proc(data_in,status_in)
 		const name = this.getAttribute('name')
 		var str_out = key + "<br />"
 		str_out += name + "<br />"
+		str_out += status_in[key].data + "<br />"
+		str_out += "前週 " + status_in[key].count_a + "<br />"
+		str_out += "今週 " + status_in[key].count_b + "<br />"
 		jQuery("#outarea_cc").html (str_out)
             })
 
