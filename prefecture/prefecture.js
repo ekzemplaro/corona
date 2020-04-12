@@ -14,7 +14,11 @@ jQuery (function ()
 		{
 		jQuery ("button").click (function ()
 		{
-		var key = this.id
+
+		jQuery ("button").css ("color","black")
+		jQuery ("button#" + this.id).css ("color","blue")
+
+		const key = this.id
 
 		jQuery("#outarea_bb").text (key + " clicked ***")
 		
