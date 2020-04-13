@@ -1,7 +1,7 @@
 // -----------------------------------------------------------------------
 //	capacity_pref.js
 //
-//					Feb/29/2019
+//					Apr/13/2020
 //
 // -----------------------------------------------------------------------
 jQuery (function ()
@@ -19,9 +19,11 @@ jQuery (function ()
 		str_out += "<th>Pref</th>"
 		str_out += "<th>Mar/7</th>"
 		str_out += "<th>Mar/24</th>"
+		str_out += "<th>Apr/06</th>"
 		str_out += "</tr>"
 		var sum_mar07 = 0
 		var sum_mar24 = 0
+		var sum_apr06 = 0
 
 		for (var key in data_aa)
 			{
@@ -31,17 +33,20 @@ jQuery (function ()
 			str_out += "<td>" + unit_aa.name + "</td>"
 			str_out += "<td>" + unit_aa.mar07 + "</td>"
 			str_out += "<td>" + unit_aa.mar24 + "</td>"
+			str_out += "<td>" + unit_aa.apr06 + "</td>"
 			str_out += "</tr>"
 
 			sum_mar07 += parseInt(unit_aa.mar07)
 			sum_mar24 += parseInt(unit_aa.mar24)
+			sum_apr06 += parseInt(unit_aa.apr06)
 			}
 
 		str_out += "<tr>"
 		str_out += "<td></td>"
 		str_out += "<th>計</th>"
 		str_out += "<td>" + sum_mar07 + "</td>"
-			str_out += "<td>" + sum_mar24 + "</td>"
+		str_out += "<td>" + sum_mar24 + "</td>"
+		str_out += "<td>" + sum_apr06 + "</td>"
 		str_out += "</tr>"
 		str_out += "</table>"
 
