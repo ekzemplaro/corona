@@ -1,14 +1,18 @@
 // -----------------------------------------------------------------------
 //	prefecture.js
 //
-//					Apr/21/2020
+//					Apr/12/2020
 //
 // -----------------------------------------------------------------------
 jQuery (function ()
 {
 	jQuery("#outarea_aa").text ("*** start *** prefecture.js ***")
 
-	jQuery ("button").click (function ()
+	const file_in = "./data_all.json"
+
+	jQuery.getJSON (file_in,function (data_aa)
+		{
+		jQuery ("button").click (function ()
 		{
 
 		jQuery ("button").css ("color","black")
@@ -16,60 +20,21 @@ jQuery (function ()
 
 		const key = this.id
 
-		const file_json = file_define_proc(key)
-
 		jQuery("#outarea_bb").text (key + " clicked ***")
-		jQuery("#outarea_cc").text (file_json)
 		
-		jQuery.getJSON (file_json,function (data_aa)
-			{
-			const str_out = display_proc(data_aa)
-			jQuery(".contents").html (str_out)
-			})
+		const str_out = display_proc(data_aa[key])
 
+		jQuery(".contents").html (str_out)
 		})
-//		})
+		})
 
 	jQuery("#outarea_hh").text ("*** end *** prefecture.js ***")
 })
 
 // -----------------------------------------------------------------------
-function file_define_proc(key)
+function display_proc(array_aa)
 {
-	var prefecture = "---"
-
-	switch(key)
-		{
-		case "p07":
-			prefecture = "fukushima"
-			break
-
-		case "p08":
-			prefecture = "ibaraki"
-			break
-
-		case "p09":
-			prefecture = "tochigi"
-			break
-
-		case "p10":
-			prefecture = "gunma"
-			break
-
-		case "p11":
-			prefecture = "saitama"
-			break
-			}
-
-	const file_json = "data_" + prefecture + ".json"
-
-	return file_json
-}
-
-// -----------------------------------------------------------------------
-function display_proc(data_aa)
-{
-//	array_aa.sort (compare_by_key_proc)
+	array_aa.sort (compare_by_key_proc)
 
 	var str_out = ""
 	str_out += "<table>"
@@ -82,24 +47,16 @@ function display_proc(data_aa)
 	str_out += "<th>職業</th>"
 	str_out += "</tr>"
 
-	for (var key in data_aa)
+	for (var it in array_aa)
 		{
-		const unit_aa = data_aa[key]
+		const unit_aa = array_aa[it]
 		str_out += "<tr>"
-		str_out += "<td>" + key + "</td>"
+		str_out += "<td>" + unit_aa.code + "</td>"
 		str_out += "<td>" + unit_aa.date + "</td>"
 		str_out += "<td>" + unit_aa.age + "</td>"
 		str_out += "<td>" + unit_aa.sex + "</td>"
-		str_out += "<td>" + unit_aa.place + "</td>"
-		if ("occupation" in unit_aa)
-			{
-			str_out += "<td>" + unit_aa.occupation + "</td>"
-			}
-		else
-			{
-			str_out += "<td>---</td>"
-			}
-
+		str_out += "<td>" + unit_aa.city + "</td>"
+		str_out += "<td>" + unit_aa.occupation + "</td>"
 		str_out += "</tr>"
 		}
 

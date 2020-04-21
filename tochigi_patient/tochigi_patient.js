@@ -1,14 +1,14 @@
 // -----------------------------------------------------------------------
 //	tochigi_patient.js
 //
-//					Mar/30/2020
+//					Apr/21/2020
 //
 // -----------------------------------------------------------------------
 jQuery (function ()
 {
 	jQuery("#outarea_aa").text ("*** tochigi_patient *** start ***")
 
-	const file_in = "./data_corona.json"
+	const file_in = "./data_tochigi.json"
 
 	jQuery.getJSON (file_in,function (data_aa)
 		{
