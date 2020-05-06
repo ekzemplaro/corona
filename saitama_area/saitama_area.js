@@ -27,7 +27,7 @@ function to_district_proc(status_in)
 	for (var key in status_in)
 		{
 		const unit_aa = status_in[key]
-		str_out += key + "<br />"
+		str_out += key + "&nbsp;"
 
 		if (key == "11100")
 			{
@@ -42,9 +42,13 @@ function to_district_proc(status_in)
 			{
 			status_out[key] = unit_aa
 			}
+
+		str_out += "status = " + unit_aa.status + "&nbsp;"
+		str_out += "count_a = " + unit_aa.count_a + "&nbsp;"
+		str_out += "count_b = " + unit_aa.count_b + "<br />"
 		}
 
-//	jQuery("#outarea_cc").html (str_out)
+	jQuery("#outarea_cc").html (str_out)
 
 	return status_out
 }
