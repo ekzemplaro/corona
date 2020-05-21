@@ -1,7 +1,7 @@
 // -----------------------------------------------------------------------
 //	capacity_pref.js
 //
-//					Apr/28/2020
+//					May/21/2020
 //
 // -----------------------------------------------------------------------
 jQuery (function ()
@@ -22,19 +22,22 @@ jQuery (function ()
 		str_out += "<th>4月6日</th>"
 		str_out += "<th>4月15日</th>"
 		str_out += "<th>5月4日</th>"
+		str_out += "<th>5月18日</th>"
 		str_out += "</tr>"
 		str_out += "<tr>"
-		str_out += "<th>Mar/7</th>"
+		str_out += "<th>Mar/07</th>"
 		str_out += "<th>Mar/24</th>"
 		str_out += "<th>Apr/06</th>"
 		str_out += "<th>Apr/15</th>"
 		str_out += "<th>May/04</th>"
+		str_out += "<th>May/18</th>"
 		str_out += "</tr>"
 		var sum_mar07 = 0
 		var sum_mar24 = 0
 		var sum_apr06 = 0
 		var sum_apr15 = 0
 		var sum_may04 = 0
+		var sum_may18 = 0
 
 		for (var key in data_aa)
 			{
@@ -47,6 +50,7 @@ jQuery (function ()
 			str_out += "<td>" + unit_aa.apr06 + "</td>"
 			str_out += "<td>" + unit_aa.apr15 + "</td>"
 			str_out += "<td>" + unit_aa.may04 + "</td>"
+			str_out += "<td>" + unit_aa.may18 + "</td>"
 			str_out += "</tr>"
 
 			sum_mar07 += parseInt(unit_aa.mar07)
@@ -54,6 +58,7 @@ jQuery (function ()
 			sum_apr06 += parseInt(unit_aa.apr06)
 			sum_apr15 += parseInt(unit_aa.apr15)
 			sum_may04 += parseInt(unit_aa.may04)
+			sum_may18 += parseInt(unit_aa.may18)
 			}
 
 		str_out += "<tr>"
@@ -64,6 +69,7 @@ jQuery (function ()
 		str_out += "<td>" + sum_apr06 + "</td>"
 		str_out += "<td>" + sum_apr15 + "</td>"
 		str_out += "<td>" + sum_may04 + "</td>"
+		str_out += "<td>" + sum_may18 + "</td>"
 		str_out += "</tr>"
 		str_out += "</table>"
 
