@@ -1,7 +1,7 @@
 #
-sudo ufw default allow outgoing
+#sudo ufw default allow outgoing
 #
 git pull
 #
-sudo ufw default deny outgoing
+#sudo ufw default deny outgoing
 #
