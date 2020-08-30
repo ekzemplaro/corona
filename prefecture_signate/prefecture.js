@@ -1,14 +1,14 @@
 // -----------------------------------------------------------------------
 //	prefecture.js
 //
-//					Apr/12/2020
+//					Aug/30/2020
 //
 // -----------------------------------------------------------------------
 jQuery (function ()
 {
 	jQuery("#outarea_aa").text ("*** start *** prefecture.js ***")
 
-	const file_in = "./data_all.json"
+	const file_in = "./data_pref.json"
 
 	jQuery.getJSON (file_in,function (data_aa)
 		{
