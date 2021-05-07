@@ -1,0 +1,1 @@
+./xlsx_to_json_vaccine.py KOREI-kenbetsu-vaccination_data.xlsx KOREI-kenbetsu-vaccination_data.json
