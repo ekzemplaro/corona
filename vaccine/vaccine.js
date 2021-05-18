@@ -1,7 +1,7 @@
 // -----------------------------------------------------------------------
-//  vaccine.js
+//	vaccine.js
 //
-//				  Mar/30/2020
+//					May/18/2021
 //
 // -----------------------------------------------------------------------
 jQuery (function ()
@@ -76,11 +76,11 @@ function compare_by_key_proc (left,right)
 
 	if (aa < bb)
 		{
-		rvalue = -1
+		rvalue = 1
 		}
 	else if (aa > bb)
 		{
-		rvalue = 1
+		rvalue = -1
 		}
 
 	return	rvalue
