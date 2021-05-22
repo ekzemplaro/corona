@@ -1,0 +1,4 @@
+#
+./pick_japan.js vaccinations.json vaccinations_japan.json
+#
+jq . vaccinations_japan.json > tmp01
