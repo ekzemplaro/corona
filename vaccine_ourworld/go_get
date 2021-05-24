@@ -1,6 +1,6 @@
 #
-# wget https://covid.ourworldindata.org/data/owid-covid-data.json
 #
-# wget https://github.com/owid/covid-19-data/blob/master/public/data/vaccinations/vaccinations.json
-
+rm -f vaccinations.json
+#
+#
 wget https://github.com/owid/covid-19-data/raw/master/public/data/vaccinations/vaccinations.json
