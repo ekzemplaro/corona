@@ -36,6 +36,7 @@ function merge_proc(data_korei,data_iryo)
 		dict_korei[key]["iryo_number"] = 0
 		dict_korei[key]["iryo_first"] = 0
 		dict_korei[key]["iryo_second"] = 0
+		dict_korei[key]["number"] = dict_korei[key]["first"] + dict_korei[key]["second"]
 
 		if (dict_iryo[key])
 			{	
