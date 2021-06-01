@@ -1,0 +1,5 @@
+#
+# pdftotext -layout 1s1s_04.pdf - > tmp01
+#
+./population_gen.js pref.txt pref.json
+#

@@ -1,0 +1,3 @@
+#
+./merge.js pref.json KOREI-kenbetsu-vaccination_data.json vaccine_merged.json
+#
