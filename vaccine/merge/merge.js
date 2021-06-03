@@ -1,6 +1,6 @@
 #! /usr/bin/node
 // ---------------------------------------------------------------
-//	population_gen.js
+//	merge.js
 //
 //						Jun/01/2021
 // ---------------------------------------------------------------
@@ -67,13 +67,6 @@ function merge_proc(dict_pref,dict_vaccine)
 		const code = dict_vaccine[pref]["code"]
 		console.log(pref,code)
 		}
-/*
-	for (var pref in dict_vaccine)
-		{
-		const code = dict_vaccine[pref]["code"]
-		console.log(pref,code)
-		}
-*/
 
 	return dict_merged
 }
