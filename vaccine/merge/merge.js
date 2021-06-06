@@ -2,38 +2,11 @@
 // ---------------------------------------------------------------
 //	merge.js
 //
-//						Jun/01/2021
+//						Jun/07/2021
 // ---------------------------------------------------------------
 'use strict'
 
 var fs = require("fs")
-// ---------------------------------------------------------------
-function text_read_proc(file_in)
-{
-	var dict_aa = new Object ()
-	const data = fs.readFileSync (file_in,'utf8')
-
-	const lines_in = ("" + data).split ("\n")
-
-	lines_in.forEach (function(line)
-		{
-		const separator_string = /\s+/
-		const rr = line.split (separator_string)
-		const pref = rr[1]
-//		if (1< pref.length)
-		if (pref)
-			{
-			const number = rr[3]
-			const removed = number.replace(/,/g, '')
-			const pp = parseInt(removed,10) * 1000
-			dict_aa[pref] = {"over_65": pp}
-			console.log(pref)
-			}
-		})
-
-	return dict_aa
-}
-
 // ---------------------------------------------------------------
 function json_write_proc(file_json,dict_aa)
 {
@@ -52,19 +25,18 @@ function json_write_proc(file_json,dict_aa)
 }
 
 // ---------------------------------------------------------------
-function merge_proc(dict_pref,dict_vaccine)
+function merge_proc(dict_pref,dict_vaccine_new)
 {
 	var dict_merged = new Object ()
 	
 	for (var pref in dict_pref)
 		{
+		const code = dict_vaccine_new[pref]["code"]
 		dict_merged[pref] = new Object ()
 		dict_merged[pref]["over_65"] = dict_pref[pref].over_65
-		dict_merged[pref]["code"] = dict_vaccine[pref].code
-		dict_merged[pref]["1"] = dict_vaccine[pref]["1"]
-		dict_merged[pref]["2"] = dict_vaccine[pref]["2"]
-		dict_merged[pref]["3"] = dict_vaccine[pref]["3"]
-		const code = dict_vaccine[pref]["code"]
+		dict_merged[pref]["code"] = code
+		dict_merged[pref]["first"] = dict_vaccine_new[pref]["first"]
+		dict_merged[pref]["second"] = dict_vaccine_new[pref]["second"]
 		console.log(pref,code)
 		}
 
@@ -72,34 +44,18 @@ function merge_proc(dict_pref,dict_vaccine)
 }
 
 // ---------------------------------------------------------------
-function array_to_dict_proc(array_vaccine)
+function vaccine_key_convert_proc(dict_vaccine,dict_code_pref)
 {
-	var dict_vaccine = new Object ()
+	var dict_vaccine_new = new Object ()
 
-	for (var it in array_vaccine)
+	for (var key in dict_vaccine)
 		{
-		const unit_aa = array_vaccine[it]
-		if (unit_aa["0"])
-			{
-			const code = unit_aa["0"].substring(0,2)
-			if (isFinite(code))
-				{
-//				console.log(unit_aa["0"],code)
-				const pref = unit_aa["0"].substring(3,)
-				if (1 < pref.length)
-					{
-//				console.log(unit_aa["0"],code,pref)
-				dict_vaccine[pref] = new Object ()
-				dict_vaccine[pref]["code"] = code
-				dict_vaccine[pref]["1"] = unit_aa["1"]
-				dict_vaccine[pref]["2"] = unit_aa["2"]
-				dict_vaccine[pref]["3"] = unit_aa["3"]
-					}
-				}
-			}
+		const pref = dict_code_pref[key]
+		dict_vaccine_new[pref] = dict_vaccine[key]
+		dict_vaccine_new[pref]["code"] = key
 		}  
 
-	return dict_vaccine
+	return dict_vaccine_new
 }
 
 // ---------------------------------------------------------------
@@ -107,7 +63,8 @@ console.error ("*** 開始 ***")
 //
 const file_pref=process.argv[2]
 const file_vaccine=process.argv[3]
-const file_out=process.argv[4]
+const file_code_pref=process.argv[4]
+const file_out=process.argv[5]
 
 console.log (file_pref)
 
@@ -117,12 +74,16 @@ if (fs.existsSync(file_pref))
 	const dict_pref = JSON.parse (str_pref)
 
 	const str_vaccine = fs.readFileSync (file_vaccine,'utf8')
-	const array_vaccine = JSON.parse (str_vaccine)
+	const dict_vaccine = JSON.parse (str_vaccine)
 
-	const dict_vaccine = array_to_dict_proc(array_vaccine)
-	const dict_merged = merge_proc(dict_pref,dict_vaccine)
+	const str_code_pref = fs.readFileSync (file_code_pref,'utf8')
+	const dict_code_pref = JSON.parse (str_code_pref)
+
+	const dict_vaccine_new = vaccine_key_convert_proc(dict_vaccine,dict_code_pref)
+	const dict_merged = merge_proc(dict_pref,dict_vaccine_new)
 
 
+//	json_write_proc(file_out,dict_vaccine_new)
 	json_write_proc(file_out,dict_merged)
 	}
 else

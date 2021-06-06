@@ -1,0 +1,4 @@
+#
+rm -f KOREI-kenbetsu-vaccination_data.xlsx
+# wget https://www.kantei.go.jp/jp/content/KOREI-vaccination_data.xlsx
+wget https://www.kantei.go.jp/jp/content/KOREI-kenbetsu-vaccination_data.xlsx

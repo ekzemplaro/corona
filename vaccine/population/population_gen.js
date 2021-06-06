@@ -55,7 +55,8 @@ function json_write_proc(file_json,dict_aa)
 console.error ("*** 開始 ***")
 //
 const file_in=process.argv[2]
-const file_json=process.argv[3]
+const file_pref=process.argv[3]
+const file_json=process.argv[4]
 
 console.log (file_in)
 

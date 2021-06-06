@@ -1,14 +1,13 @@
 // -----------------------------------------------------------------------
 //	vaccine.js
 //
-//					Jun/01/2021
+//					Jun/07/2021
 //
 // -----------------------------------------------------------------------
 jQuery (function ()
 {
 	jQuery("#outarea_aa").text ("*** vaccine *** start ***")
 
-//	const file_in = "./KOREI-kenbetsu-vaccination_data.json"
 	const file_in = "./vaccine_merged.json"
 
 	jQuery.getJSON (file_in,function (dict_in)
@@ -34,11 +33,12 @@ jQuery (function ()
 			str_out += "<tr>"
 			str_out += "<td>" + count + "</td>"
 			str_out += "<td>" + pref + "</td>"
-			str_out += "<td>" + unit_aa["1"] + "</td>"
-			str_out += "<td>" + unit_aa["2"] + "</td>"
-			str_out += "<td>" + unit_aa["3"] + "</td>"
+			const sum = unit_aa["first"] + unit_aa["second"]
+			str_out += "<td>" + sum + "</td>"
+			str_out += "<td>" + unit_aa["first"] + "</td>"
+			str_out += "<td>" + unit_aa["second"] + "</td>"
 			str_out += "<td>" + unit_aa.over_65 + "</td>"
-			str_out += "<td>" + unit_aa.percent.toFixed(1) + "</td>"
+			str_out += "<td>" + unit_aa.percent.toFixed(2) + "</td>"
 			str_out += "</tr>"
 
 			count += 1
@@ -62,7 +62,7 @@ function sort_proc(dict_in)
 		{
 		var unit_aa = dict_in[pref]
 		unit_aa["pref"] = pref
-		const percent = unit_aa["2"] * 100.0 / unit_aa.over_65
+		const percent = unit_aa["first"] * 100.0 / unit_aa.over_65
 		unit_aa["percent"] = percent
 		data_out.push(unit_aa)
 		}
