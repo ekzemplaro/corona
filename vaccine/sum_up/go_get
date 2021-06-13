@@ -1,2 +1,5 @@
 #
-wget https://vrs-data.cio.go.jp/vaccination/opendata/latest/prefecture.ndjson
+wget -O tmp01.gz https://vrs-data.cio.go.jp/vaccination/opendata/latest/prefecture.ndjson
+#
+gunzip tmp01.gz
+mv tmp01 prefecture.ndjson
