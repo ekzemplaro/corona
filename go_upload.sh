@@ -2,7 +2,7 @@
 #sudo ufw default allow outgoing
 #
 git add --all
-git commit -m "Commit on Jun/14/2021"
+git commit -m "Commit on Jan/23/2022"
 git push -u origin master
 #
 #sudo ufw default deny outgoing
